@@ -1,0 +1,14 @@
+.input-container{
+    display: flex;
+    gap: 20px;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    font-size: larger;
+
+}
+.products-table{
+    border: 2px solid black;
+}

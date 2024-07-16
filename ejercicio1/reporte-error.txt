@@ -1,0 +1,16 @@
+Reporte de errores encontrados en el código de el ejercicio1:
+
+el unico error que se encontro acontecia al querer cambiar el estado de una tarea cuando la información de esta había sido obtenida desde localStorage, el error era el siguiente:
+
+"TypeError: task.toggleComplete is not a function
+    at TaskManager.toggleTaskComplete (1.js:36:18)
+    at HTMLLIElement.<anonymous> (1.js:57:55)".
+
+esto se debía a que al recargar la pagina y obtener los datos desde localStorage no estamos trabajando con instancias de la clase 'Task' sino con un objeto simple de JS, por ende este no tenia acceso a los metodos de la clase 'Task'.
+la correccion de este error se logró instanciando aquel objeto con sus mismos valores para poderle aplicar el metodo 'toggleTaskComplete' con la siguiente linea de código:
+
+
+//crecion de la nueva instancia a partir de los mismos datos.
+const taskInstance = new Task(task.id, task.description, task.completed); 
+//ejecución del metodo sobre la nueva instancia. 
+            taskInstance.toggleComplete();
